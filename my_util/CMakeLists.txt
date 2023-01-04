@@ -27,7 +27,6 @@ enable_testing()
 
 add_executable(swap_test test/swap_test.cc)
 target_link_libraries(swap_test GTest::gtest_main my_util)
-target_compile_options(swap_test PUBLIC -g)
 
 include(GoogleTest)
 gtest_discover_tests(swap_test)
