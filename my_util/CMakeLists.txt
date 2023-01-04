@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
 project(myUtil)
 
@@ -25,7 +25,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(swap_test test/swap_test.cc)
+add_executable(swap_test test/swap_test.cpp)
 target_link_libraries(swap_test GTest::gtest_main my_util)
 
 include(GoogleTest)
