@@ -4,8 +4,10 @@ project(adventOfCode2022)
 # Add each advent of code subdir
 add_subdirectory(01_calories)
 
-# util library
 add_subdirectory(my_util)
+add_subdirectory(my_datastructures)
+target_link_libraries(my_datastructures my_util)
+
 
 # testing needs to be enabled in every CMakeLists.txt file
 enable_testing()
