@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "debug heap",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "/home/remo/code/advent-of-code-2022/build/my_datastructures/heap_test",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
