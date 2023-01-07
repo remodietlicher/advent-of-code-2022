@@ -17,7 +17,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-#include "../maxHeap.h"
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
@@ -25,6 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <functional>
 #include <gtest/gtest.h>
 #include <vector>
+
+#include "../maxHeap.h"
 
 TEST(TestHeap, TestHeapify) {
   const int kSize = 5;
