@@ -6,13 +6,13 @@ project(myDatastructures)
 set(CMAKE_CXX_STANDARD 14)
 
 # Add the library sources
-add_library(my_datastructures maxHeap.cc)
+add_library(my_datastructures INTERFACE)
 
 # Add the header files
-target_include_directories(my_datastructures PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(my_datastructures INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Add dependency on my_util
-target_link_libraries(my_datastructures my_util)
+target_link_libraries(my_datastructures INTERFACE my_util)
 
 include(FetchContent)
 FetchContent_Declare(

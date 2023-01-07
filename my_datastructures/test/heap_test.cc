@@ -18,20 +18,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
 #include "../maxHeap.h"
+#include <algorithm>
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <functional>
 #include <gtest/gtest.h>
+#include <vector>
 
 TEST(TestHeap, TestHeapify) {
-  int a[5] = {0, 1, 2, 3, 4};
-  int r[5] = {4, 3, 2, 1, 0};
+  const int kSize = 5;
+  std::vector<int> a{0, 1, 2, 3, 4};
+  std::vector<int> r{4, 3, 2, 1, 0};
 
-  MaxHeap *heap = new MaxHeap(5, a, 5);
+  MaxHeap<int> heap(a);
 
-  for (int i = 5; i >= 0; i--) {
-    heap->maxHeapify(i);
+  for (int i = kSize; i >= 0; i--) {
+    heap.maxHeapify(i);
   }
 
-  for (int i = 0; i < 5; i++) {
-    EXPECT_EQ(heap->popMax(), r[i]);
+  for (int i = 0; i < kSize; i++) {
+    EXPECT_EQ(heap.popMax(), r[i]);
+  }
+}
+
+TEST(TestHeap, TestHeapLong) {
+  const int kSize = 1000;
+
+  srand(65498);
+  std::vector<int> a(kSize);
+
+  for (int i = 0; i < kSize; i++) {
+    a[i] = rand();
+  }
+
+  std::vector<int> r(a);
+  std::sort(r.begin(), r.end(), std::greater<int>());
+
+  MaxHeap<int> heap(a);
+
+  for (int i = kSize; i >= 0; i--) {
+    heap.maxHeapify(i);
+  }
+
+  for (int i = 0; i < kSize; i++) {
+    EXPECT_EQ(heap.popMax(), r[i]);
   }
 }
